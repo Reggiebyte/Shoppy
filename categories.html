@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoppy - Categories</title>
+    <link rel="icon" href="logo.jpeg" type="image/x-icon" />
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #3d6893;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      .category-card {
+        width: 220px;
+        padding: 20px;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+
+      .category-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .category-card a {
+        text-decoration: none;
+        color: #2c3e50;
+        font-size: 18px;
+        font-weight: bold;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #3498db;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #navbar div:first-child {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      #navbar div a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      #navbar div a:hover {
+        color: #ecf0f1;
+      }
+
+      #categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        margin: 40px;
+        padding: 0 20px;
+      }
+
+      h1 {
+        text-align: center;
+        color: white;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div>
+        <a href="index.html" style="color: white; text-decoration: none"
+          >Shoppy</a
+        >
+      </div>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="orders.html">Orders</a>
+        <a href="login.html">Sign in</a>
+      </div>
+    </nav>
+
+    <h1>Product Categories</h1>
+
+    <div id="categories">
+      <div
+        class="category-card"
+        title="Explore the latest gadgets and devices."
+      >
+        <a href="index.html?category=Electronics">Electronics</a>
+        <p>Latest gadgets and devices</p>
+      </div>
+      <div
+        class="category-card"
+        title="Find stylish apparel for every occasion."
+      >
+        <a href="index.html?category=Clothing">Clothing</a>
+        <p>Stylish apparel for all</p>
+      </div>
+      <div
+        class="category-card"
+        title="Essential items for your home and kitchen."
+      >
+        <a href="index.html?category=Home & Kitchen">Home & Kitchen</a>
+        <p>Essentials for home and kitchen</p>
+      </div>
+      <div
+        class="category-card"
+        title="Expand your knowledge with our book collection."
+      >
+        <a href="index.html?category=Books">Books</a>
+        <p>Knowledge and learning resources</p>
+      </div>
+      <div
+        class="category-card"
+        title="Gear up for your favorite sports and activities."
+      >
+        <a href="index.html?category=Sports">Sports</a>
+        <p>Sports equipment and accessories</p>
+      </div>
+    </div>
+  </body>
+</html>

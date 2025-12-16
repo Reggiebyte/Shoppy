@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shoppy</title>
+    <link rel="icon" href="logo.jpeg" type="image/x-icon" />
+
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #3d6893;
+        margin: 0;
+        padding: 0;
+        color: #333;
+      }
+
+      .product-card {
+        width: 220px;
+        padding: 15px;
+        border: 1px solid #e0e0e0;
+        text-align: center;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .product-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border-radius: 8px;
+      }
+
+      .product-card h3 {
+        margin: 10px 0;
+        font-size: 18px;
+        color: #2c3e50;
+      }
+
+      .product-card p {
+        font-size: 16px;
+        color: #e74c3c;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+
+      .product-card button {
+        background-color: #27ae60;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+      }
+
+      .product-card button:hover {
+        background-color: #229954;
+      }
+
+      #navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+        background-color: #3498db;
+        color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      #navbar div:first-child {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      #navbar div a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: white;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      #navbar div a:hover {
+        color: #ecf0f1;
+      }
+
+      #search {
+        margin: 30px 0;
+        text-align: center;
+      }
+
+      #search input {
+        width: 350px;
+        padding: 12px;
+        border: 2px solid #bdc3c7;
+        border-radius: 25px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      #search input:focus {
+        border-color: #3498db;
+      }
+
+      #products {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 25px;
+        justify-content: center;
+        margin: 20px;
+        padding: 0 20px;
+      }
+
+      #cart {
+        margin: 40px auto;
+        padding: 25px;
+        border: 1px solid #e0e0e0;
+        background-color: #fff;
+        border-radius: 12px;
+        max-width: 500px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      #cart h3 {
+        margin-top: 0;
+        color: #2c3e50;
+      }
+
+      #cart p {
+        margin: 10px 0;
+        font-size: 16px;
+      }
+
+      #cart button {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 0 5px;
+        transition: background-color 0.3s;
+      }
+
+      #cart button:hover {
+        background-color: #c0392b;
+      }
+
+      #cart .place-order {
+        background-color: #f39c12;
+        padding: 12px 24px;
+        font-size: 16px;
+        margin-top: 15px;
+      }
+
+      #cart .place-order:hover {
+        background-color: #e67e22;
+      }
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div>
+        <a href="index.html" style="color: white; text-decoration: none"
+          >Shoppy</a
+        >
+      </div>
+      <div>
+        <a href="index.html">Home</a>
+        <a href="categories.html">Categories</a>
+        <a href="orders.html">Orders</a>
+        <a href="login.html">Sign in</a>
+      </div>
+    </nav>
+
+    <div id="search">
+      <input type="text" id="search-input" placeholder="Search products..." />
+    </div>
+
+    <div id="products"></div>
+    <div id="cart"></div>
+
+    <script src="h.js"></script>
+    <script>
+      const products = [
+        {
+          name: "S25 ultra",
+          price: "$1255",
+          img: "download.avif",
+          category: "Electronics",
+          description:
+            "Latest Samsung flagship with advanced camera and performance.",
+        },
+        {
+          name: "Samsung Galaxy Trifold",
+          price: "$2999",
+          img: "shopping_3.avif",
+          category: "Electronics",
+          description:
+            "Innovative foldable phone with large screen and portability.",
+        },
+        {
+          name: "Pixel 10 pro",
+          price: "$2500",
+          img: "shopping_2.avif",
+          category: "Electronics",
+          description:
+            "Google's premium phone with exceptional photography features.",
+        },
+        {
+          name: "Iphone 17 pro",
+          price: "$1999",
+          img: "download (1).avif",
+          category: "Electronics",
+          description:
+            "Apple's latest iPhone with pro camera and powerful chip.",
+        },
+        {
+          name: "Iphone 17 pro max",
+          price: "$2100",
+          img: "kds.avif",
+          category: "Electronics",
+          description:
+            "Max version of iPhone 17 with largest display and battery.",
+        },
+        {
+          name: "T-Shirt",
+          price: "$20",
+          img: "jnck.avif",
+          category: "Clothing",
+          description: "Comfortable cotton t-shirt for everyday wear.",
+        },
+        {
+          name: "Jeans",
+          price: "$50",
+          img: "jsnjksn.avif",
+          category: "Clothing",
+          description: "Classic denim jeans with perfect fit and durability.",
+        },
+        {
+          name: "Blender",
+          price: "$100",
+          img: "shopping_2.avif",
+          category: "Home & Kitchen",
+          description: "High-speed blender for smoothies and food preparation.",
+        },
+        {
+          name: "Book: JavaScript Guide",
+          price: "$30",
+          img: "js book.avif",
+          category: "Books",
+          description:
+            "Comprehensive guide to learning JavaScript programming.",
+        },
+        {
+          name: "Basketball",
+          price: "$40",
+          img: "bball.avif",
+          category: "Sports",
+          description: "Official size basketball for indoor and outdoor play.",
+        },
+      ];
+
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      function displayProducts() {
+        const category = getQueryParam("category");
+        const searchTerm = document
+          .getElementById("search-input")
+          .value.toLowerCase();
+        let filteredProducts = category
+          ? products.filter((p) => p.category === category)
+          : products;
+        filteredProducts = filteredProducts.filter((p) =>
+          p.name.toLowerCase().includes(searchTerm)
+        );
+        const productsDiv = document.getElementById("products");
+        productsDiv.innerHTML = "";
+        filteredProducts.forEach((product) => {
+          productsDiv.innerHTML += `
+            <div class="product-card" title="${product.description}">
+              <img src="${product.img}" alt="image of ${product.name}" />
+              <h3>${product.name}</h3>
+              <p>${product.price}</p>
+              <button onclick="addToCart({name:'${product.name}', price:'${product.price}'})">Add to Cart</button>
+            </div>
+          `;
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        displayProducts();
+        document
+          .getElementById("search-input")
+          .addEventListener("input", displayProducts);
+      });
+    </script>
+  </body>
+</html>
